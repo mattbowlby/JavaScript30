@@ -1,0 +1,77 @@
+html {
+  font-size: 10px;
+  /*background: url(../img/background.jpg) bottom center;*/
+  background-color: #5B92E5;
+  background-size: cover;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.headers {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.visible {
+  font-size: 10em;
+  color: #0F4698;
+}
+
+.hidden {
+  font-size: 0em;
+  color: #0F4698;
+}
+
+
+.logo {
+  /*border: solid 5px red;*/
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 25vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid black;
+  /*border-radius: .5rem;*/
+  border-radius: 15px/45px;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 12rem;
+  height: 8rem;
+  text-align: center;
+  color: #D8E8FF;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+  transform: scale(1.1); /* button increases in size */
+  border-color: #8CBAFF;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #D8E8FF;
+}

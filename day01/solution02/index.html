@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>United Nations</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+
+<body>
+
+
+  <div class="headers">
+    <h1 data-key="65" class="header hidden">Arabic</h1>
+    <h1 data-key="83" class="header hidden">German</h1>
+    <h1 data-key="68" class="header hidden">English</h1>
+    <h1 data-key="70" class="header hidden">Spanish</h1>
+    <h1 data-key="71" class="header hidden">French</h1>
+    <h1 data-key="72" class="header hidden">Hungarian</h1>
+    <h1 data-key="74" class="header hidden">Portuguese</h1>
+    <h1 data-key="75" class="header hidden">Russian</h1>
+    <h1 data-key="76" class="header hidden">Chinese</h1>
+  </div>
+
+  <div class="logo">
+    <img src="img/logo_un_512px.png" alt="United Nations Logo">
+  </div>
+
+
+
+  <!-- begin keys -->
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>AR</kbd>
+      <span class="sound">الأمم المتحدة</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>DE</kbd>
+      <span class="sound">Vereinten Nationen</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>EN</kbd>
+      <span class="sound">United Nations</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>ES</kbd>
+      <span class="sound">Naciones Unidas</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>FR</kbd>
+      <span class="sound">Nations Unies</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>HU</kbd>
+      <span class="sound">Egyesült Nemzetek</span>
+    </div>    
+    <div data-key="74" class="key">
+      <kbd>PT</kbd>
+      <span class="sound">Nações Unidas</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>RU</kbd>
+      <span class="sound">Объединенные Нации</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>ZH</kbd>
+      <span class="sound">联合国</span>
+    </div>
+  </div>
+  <!-- end keys -->
+
+
+
+  <!-- begin audio files -->
+  <audio data-key="65" src="sounds/united_nations_ar.mp3"></audio>
+  <audio data-key="83" src="sounds/united_nations_de.mp3"></audio>
+  <audio data-key="68" src="sounds/united_nations_en.mp3"></audio>
+  <audio data-key="70" src="sounds/united_nations_es.mp3"></audio>
+  <audio data-key="71" src="sounds/united_nations_fr.mp3"></audio>
+  <audio data-key="72" src="sounds/united_nations_hu.mp3"></audio>
+  <audio data-key="74" src="sounds/united_nations_pt.mp3"></audio>
+  <audio data-key="75" src="sounds/united_nations_ru.mp3"></audio>
+  <audio data-key="76" src="sounds/united_nations_zh.mp3"></audio>
+  <!-- end audio files -->
+
+
+
+
+
+
+<!-- begin javascript -->
+<script>
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // select the audio element
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); // select the div element with class of key
+
+    if (!audio) return; // stop the function if no audio is assigned to that key
+    audio.currentTime = 0; // rewind to the start of the audio
+    audio.play(); // plays the sound in the audio element assigned to the key pressed
+    key.classList.add('playing'); // add class of playing to div element with class of key  
+  
+  }; 
+
+
+  function changeTitle(e) {
+    const header = document.querySelector(`.header[data-key="${e.keyCode}"]`); // select the div element with class of header
+
+    console.log("changeTitle function is successfully being called");
+
+    if (!header) return; // stop the function if no audio is assigned to that key
+    if (key.classList.contains('hidden')) {
+      header.classList.remove('hidden').add('visible'); // change header from hidden to visible
+    } else {
+      header.classList.add('visible');
+    }
+  
+  }; 
+
+
+  function removeTransition(e) {
+    if(e.propertyName !== 'transform') return; // skip it if it's not a transform
+
+    this.classList.remove('playing');
+
+    console.log(e.propertyName);
+  }
+
+
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+  window.addEventListener('keydown', playSound);
+
+
+  // still working on changeTitle function to show a different title at top of page
+  // const headers = document.querySelectorAll('.header');
+  // headers.forEach(key => header.addEventListener('transitioned', changeTitle));
+  // window.addEventListener('keydown', changeTitle);  
+
+
+</script>
+<!-- end javascript -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
